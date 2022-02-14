@@ -4,7 +4,7 @@ words ← ⊃⎕NGET'wordlewordles'1
 find ← {,×/⍉↑{((1⌷⍵)∊'?',⊢)¨(1↓⍵)}¨↓⍺,⍉↑⍵}
 green ← {(⍺find⍵)/⍵}
 yellow ← {(((('?'≠⍺)/⍺)(×⌿∘.∊)⍵)∧(~⍺find⍵))/⍵}
-grey ← {(~(⍺(×⌿∘.∊)⍵))/⍵}
+grey ← {(0=(+/⍺∊⍨⊢)¨⍵)/⍵}
 
 ⍝ ('tread' (1 0 2 2 0)) query words
 query ← {((0=2⊃⍺)/1⊃⍺) grey (1 qize ⍺) yellow (2 qize ⍺) green ⍵}
