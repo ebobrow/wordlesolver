@@ -2,8 +2,9 @@ words ← ⊃⎕NGET'wordlewordles'1
 
 ⍝ 't????' yellow 'rd' grey '??ea?' green words
 find ← {,×/⍉↑{((1⌷⍵)∊'?',⊢)¨(1↓⍵)}¨↓⍺,⍉↑⍵}
+notFind ← {0=+/⍉↑{((1⌷⍵)∊⊢)¨(1↓⍵)}¨↓⍺,⍉↑⍵}
 green ← {(⍺find⍵)/⍵}
-yellow ← {(((('?'≠⍺)/⍺)(×⌿∘.∊)⍵)∧(~⍺find⍵))/⍵}
+yellow ← {(((('?'≠⍺)/⍺)(×⌿∘.∊)⍵)∧(⍺ notFind ⍵))/⍵}
 grey ← {(0=(+/⍺∊⍨⊢)¨⍵)/⍵}
 
 ⍝ ('tread' (1 0 2 2 0)) query words
